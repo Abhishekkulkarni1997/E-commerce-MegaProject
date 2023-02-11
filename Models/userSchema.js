@@ -1,4 +1,4 @@
-import mongoose, { mongo } from "mongoose";
+import mongoose from "mongoose";
 
 import AuthRoles from "../utils/authroles";
 import JWT from "jsonwebtoken";
