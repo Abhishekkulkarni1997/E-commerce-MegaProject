@@ -36,7 +36,7 @@ const userSchema = new mongoose.Schema(
   }
 );
 
-//to encrypt the password with mongoose hook
+//to encrypt the password with mongoose hook (hook is more like a middleware)
 
 userSchema.pre("save", async function (next) {
   if (!this.isModified(password)) return next();
@@ -44,7 +44,7 @@ userSchema.pre("save", async function (next) {
   next();
 });
 
-// adding more features to th schema
+// adding more features to the schema
 
 userSchema.methods = {
   // compare passwords
