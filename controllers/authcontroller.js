@@ -218,7 +218,7 @@ export const resetPassword = asyncHandler(async () => {
 *************************/
 
 export const getProfile = asyncHandler(async (req, res) => {
-  const user = req;
+  const user = req.user; // getting user from req.user auth.middleware
   if (!user) {
     throw new customError("user not found", 404);
   }
