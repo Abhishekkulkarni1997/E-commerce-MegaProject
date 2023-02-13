@@ -2,6 +2,7 @@ import User from "../Models/userSchema";
 import asyncHandler from "../services/asyncHandler";
 import customError from "../utils/customError";
 import mailHelper from "../utils/mailhelper";
+import crypto from "crypto";
 
 export const cookieOptions = {
   expires: new Date(Date.now() + 3 * 24 * 60 * 60 * 1000),
@@ -160,3 +161,50 @@ export const forgotPassword = asyncHandler(async (req, res) => {
     throw new customError(err.message || "Failed to send the email", 500);
   }
 });
+
+/**************** 
+@Forgot_Password
+@route http://localhost:4000/api/auth/password/reset/:resetPasswordToken
+@description User will be able to reset password based on url token
+@params  token from url, password and confirm password
+@returns user object
+
+*************************/
+
+export const resetPassword = asyncHandler(async () => {
+  const { token: resetToken } = req.params;
+  const { password, confirmPassword } = req.body;
+
+  const resetPasswordToken = crypto
+    .createHash("sha256")
+    .update(resetToken)
+    .digest("hex");
+
+  const user = await User.findOne({
+    forgotPasswordToken: resetPasswordToken,
+    forgotPasswordExpiry: { $gr: Date.now() },
+  }); /* we are checking for a user with given token and the timeout expiry */
+
+  if (!user) {
+    throw customError("Invalid password token", 400);
+  }
+  if (password !== confirmPassword) {
+    throw customError("Password does not match", 400);
+  }
+  user.password = password;
+  user.forgotPasswordToken = undefined;
+  user.forgotPasswordExpiry = undefined;
+  await user.save();
+
+  // create a token and send as response
+
+  const token = user.getJWTtoken();
+  res.cookie("token", token, cookieOptions);
+  res.status(200).json({
+    success: true,
+    message: "Password changed successfully",
+    user,
+  });
+});
+
+// TODO: create a controller for change password
