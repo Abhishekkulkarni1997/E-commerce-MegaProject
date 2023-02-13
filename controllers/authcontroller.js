@@ -97,6 +97,7 @@ export const login = asyncHandler(async (req, res) => {
 
 export const logout = asyncHandler(async (req, res) => {
   // res.clearCookie()
+  // also check nodemailer npm package
   res.cookie("token", null, {
     expires: new Date(Date.now()),
     httpOnly: true,
