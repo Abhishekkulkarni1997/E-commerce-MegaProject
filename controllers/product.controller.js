@@ -147,3 +147,14 @@ export const deleteProductById = asyncHandler(async (req, res) => {
     product,
   });
 });
+
+/*
+model.aggregate([{},{},{}])
+can be a good read
+
+$group
+$push
+$$ROOT
+$lookup
+$project
+*/
