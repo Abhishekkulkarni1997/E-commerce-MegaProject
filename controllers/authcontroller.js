@@ -229,3 +229,29 @@ export const getProfile = asyncHandler(async (req, res) => {
 });
 
 // TODO: create a controller for change password
+
+/**************** 
+@Get_UserProfile
+@requestType GET
+@route http://localhost:4000/api/auth/profile/changePassword/:id
+@description Change password
+@params  
+@returns user object
+
+*************************/
+
+export const changePassword = asyncHandler(async (req, res) => {
+  const { id } = req.params;
+  const { password, confirmPassword } = req.body;
+
+  if (password !== confirmPassword) {
+    throw customError("Password does not match", 400);
+  }
+
+  const user = await User.findByIdAndUpdate(id, { password: password });
+
+  res.status(200).json({
+    success: true,
+    message: "password changed",
+  });
+});
