@@ -67,7 +67,7 @@ export const login = asyncHandler(async (req, res) => {
     throw new customError("Both fields are required", 400);
   }
 
-  const user = await User.find({ email }).select("+password");
+  const user = await User.findOne({ email }).select("+password");
 
   if (!user) {
     throw new customError("Incorrect username or password", 400);
