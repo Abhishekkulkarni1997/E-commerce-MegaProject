@@ -3,6 +3,7 @@ import express from "express";
 import morgan from "morgan";
 import authRoutes from "./Routes/authRoutes.js";
 import collectionRoutes from "./Routes/collectionRoutes.js";
+import productRoutes from "./Routes/productRoutes.js";
 
 import cors from "cors";
 
@@ -19,6 +20,6 @@ app.use(cookieParser());
 
 app.use(morgan("tiny"));
 
-app.use(authRoutes, collectionRoutes);
+app.use(authRoutes, collectionRoutes, productRoutes);
 
 export default app;

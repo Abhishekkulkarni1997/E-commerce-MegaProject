@@ -1,5 +1,4 @@
 import mongoose from "mongoose";
-
 import AuthRoles from "../utils/authroles.js";
 import JWT from "jsonwebtoken";
 import crypto from "crypto";
@@ -39,8 +38,10 @@ const userSchema = new mongoose.Schema(
 //to encrypt the password with mongoose hook (hook is more like a middleware)
 
 userSchema.pre("save", async function (next) {
-  if (!this.isModified(password)) return next();
-  this.password = await bcrypt(this.password, 10);
+  if (!this.isModified(this.password)) {
+    return next();
+  }
+  this.password = await bcrypt.hash(this.password, 10);
   next();
 });
 
