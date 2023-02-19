@@ -1,10 +1,10 @@
 import mongoose from "mongoose";
 
-import AuthRoles from "../utils/authroles";
+import AuthRoles from "../utils/authroles.js";
 import JWT from "jsonwebtoken";
 import crypto from "crypto";
 import bcrypt from "bcryptjs";
-import config from "../config";
+import config from "../config/index.js";
 
 const userSchema = new mongoose.Schema(
   {

@@ -1,7 +1,7 @@
-import User from "../Models/userSchema";
-import asyncHandler from "../services/asyncHandler";
-import customError from "../utils/customError";
-import mailHelper from "../utils/mailhelper";
+import User from "../Models/userSchema.js";
+import asyncHandler from "../services/asyncHandler.js";
+import customError from "../utils/customError.js";
+import mailHelper from "../utils/mailhelper.js";
 import crypto from "crypto";
 
 export const cookieOptions = {

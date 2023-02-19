@@ -1,6 +1,7 @@
 import cookieParser from "cookie-parser";
 import express from "express";
 import morgan from "morgan";
+import authRoutes from "./Routes/authRoutes.js";
 
 import cors from "cors";
 
@@ -16,5 +17,7 @@ app.use(cookieParser());
 //Morgan logger gives info about api requests
 
 app.use(morgan("tiny"));
+
+app.use(authRoutes);
 
 export default app;

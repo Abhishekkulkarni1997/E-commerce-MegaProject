@@ -1,8 +1,8 @@
 // TODO: CRUD for collection create another handler collection.controller.js
 
-import Collection from "../Models/Collection";
-import asyncHandler from "../services/asyncHandler";
-import customError from "../utils/customError";
+import Collection from "../Models/Collection.js";
+import asyncHandler from "../services/asyncHandler.js";
+import customError from "../utils/customError.js";
 
 /**************** 
 @CreateCollection

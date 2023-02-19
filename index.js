@@ -5,6 +5,7 @@ import config from "./config/index.js";
 
 (async () => {
   try {
+    mongoose.set("strictQuery", true); //used to avoid warning
     await mongoose.connect(config.MONGODB_URL);
     console.log("DB Connected successfully");
 

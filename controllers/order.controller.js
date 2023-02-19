@@ -1,9 +1,9 @@
-import Product from "../Models/product";
-import Coupon from "../Models/coupon";
-import Order from "../Models/order";
-import asyncHandler from "../services/asyncHandler";
-import customError from "../utils/customError";
-import razorpay from "../config/razorpay.config";
+import Product from "../Models/product.js";
+import Coupon from "../Models/coupon.js";
+import Order from "../Models/order.js";
+import asyncHandler from "../services/asyncHandler.js";
+import customError from "../utils/customError.js";
+import razorpay from "../config/razorpay.config.js";
 
 /**************** 
 @GENERATE_RAZORPAY_ID
