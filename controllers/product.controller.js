@@ -128,7 +128,7 @@ export const getProductById = asyncHandler(async (req, res) => {
 /**************** 
 @deleteProductById
 @route http://localhost:4000/api/deleteProductById/:id
-@description to get a product
+@description to delete a product
 @params id
 @returns product object
 
