@@ -28,6 +28,7 @@ export const createCoupon = asyncHandler(async (req, res) => {
     code,
     discount,
     code,
+    active,
   });
 
   res.status(200).json({
