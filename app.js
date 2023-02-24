@@ -4,6 +4,7 @@ import morgan from "morgan";
 import authRoutes from "./Routes/authRoutes.js";
 import collectionRoutes from "./Routes/collectionRoutes.js";
 import productRoutes from "./Routes/productRoutes.js";
+import productRoutes from "./Routes/couponRoutes.js";
 
 import cors from "cors";
 
@@ -20,6 +21,6 @@ app.use(cookieParser());
 
 app.use(morgan("tiny"));
 
-app.use(authRoutes, collectionRoutes, productRoutes);
+app.use(authRoutes, collectionRoutes, productRoutes, couponRoutes);
 
 export default app;
