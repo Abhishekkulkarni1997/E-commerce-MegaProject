@@ -19,7 +19,7 @@ export const createCollection = asyncHandler(async (req, res) => {
     throw new customError("Collection should have a name", 400);
   }
   // add the value to DB
-  const collection = await Collection.save({ name });
+  const collection = await Collection.create({ name });
 
   // Send the value to frontend
 
