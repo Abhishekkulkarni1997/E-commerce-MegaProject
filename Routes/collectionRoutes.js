@@ -8,7 +8,7 @@ import {
   getAllCollections,
 } from "../controllers/collection.controller.js";
 
-collectionRoutes.post("/api/collection", createCollection);
+collectionRoutes.post("/api/createCollection", createCollection);
 collectionRoutes.patch("/api/updateCollection/:id", updateCollection);
 collectionRoutes.delete("/api/deleteCollection/:id", deleteCollection);
 collectionRoutes.get("/api/showCollections", getAllCollections);

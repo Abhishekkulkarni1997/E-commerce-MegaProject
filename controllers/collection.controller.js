@@ -6,7 +6,7 @@ import customError from "../utils/customError.js";
 
 /**************** 
 @CreateCollection
-@route http://localhost:4000/api/collection
+@route http://localhost:4000/api/createCollection
 @description create a collection
 @params collection name
 @returns collection object
