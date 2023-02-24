@@ -1,5 +1,5 @@
 import express from "express";
-import isLoggedIn from "../middleware/auth.middleware.js";
+import { isLoggedIn } from "../middleware/auth.middleware.js";
 
 const couponRoutes = express.Router();
 
@@ -22,4 +22,4 @@ couponRoutes.delete("/api/deleteCoupon/:couponID", isLoggedIn, deleteCoupon);
 
 couponRoutes.get("/api/getCoupons", isLoggedIn, getCoupons);
 
-module.exports = couponRoutes;
+export default couponRoutes;

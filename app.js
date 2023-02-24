@@ -4,7 +4,7 @@ import morgan from "morgan";
 import authRoutes from "./Routes/authRoutes.js";
 import collectionRoutes from "./Routes/collectionRoutes.js";
 import productRoutes from "./Routes/productRoutes.js";
-import productRoutes from "./Routes/couponRoutes.js";
+import couponRoutes from "./Routes/couponRoutes.js";
 
 import cors from "cors";
 
